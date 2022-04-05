@@ -969,12 +969,12 @@ call to the given @var{create} function.  The OML client library will
 call the given @var{set}, @var{input}, @var{output} and @var{meta}
 functions for filter instances of type @var{filter_name}.
 
-This function returns 0 on success and @minus{1} on error.
+This function returns 0 on success and @minus{} on error.
 
 The @var{create}, @var{input}, and @var{output} functions are required
 and cannot be @code{NULL}.  If they are @code{NULL} then the filter
 type will not be registered with the factory and the function will
-return @minus{1} (error).
+return @minus{} (error).
 
 If the @var{set} parameter is @code{NULL} then no error is generated
 and a default @code{set()} function, a no-op, is installed for this
@@ -1000,7 +1000,7 @@ OmlFilterDef my_filter_def [] =
 @end example
 
 The @var{filter_def} is also mandatory.  If it is @code{NULL}, an
-error will occur and the function returns @minus{1}.  If the type of
+error will occur and the function returns @minus{}.  If the type of
 an entry in the @var{filter_def} array is the pseudo-type
 @code{OML_INPUT_VALUE}, then the output type will be set to the type
 of the filter's primary input.
@@ -1012,7 +1012,7 @@ function prototypes}.
 
 @deftypefun int omlf_set_instance_data (@code{OmlFilter*} f, @code{void*} instance_data)
 Set the private instance data for filter @var{f}.  This function
-returns 0 on success and @minus{1} on failure.  The function will fail
+returns 0 on success and @minus{} on failure.  The function will fail
 if the filter already has private instance data, or if
 @var{instance_data} is @code{NULL}.
 @end deftypefun
@@ -1077,7 +1077,7 @@ macro for speed.
 
 @deftypefun int omlf_write_output (@code{OmlFilter*} f, @code{OmlValue*} result)
 Write the @var{result} vector for filter @var{f} to the data store.
-Returns 0 on success and @minus{1} on failure.
+Returns 0 on success and @minus{} on failure.
 
 This function is intended to be called from the filter's
 @code{output()} function.  Most filters will call this function once
@@ -1117,7 +1117,7 @@ groups all related measurement outputs.
 
 This function must only be called within the filter's @code{create()} function.
 
-Returns 0 on success, @minus{1} on failure.
+Returns 0 on success, @minus{} on failure.
 @end deftypefun
 
 @node Filter function prototypes
@@ -1197,7 +1197,7 @@ int average_create (OmlFilter* f, OmlValueT type)
 If a filter is intended to operating in multiline mode, then its
 @code{create()} function should call @code{omlf_set_multiline()}.
 
-The @code{create()} function should return 0 on success and @minus{1}
+The @code{create()} function should return 0 on success and @minus{}
 on failure.  If it signals a failure, then the filter factory will log
 an error to the OML log and the filter instance will not be created.
 The @code{create()} function should @code{free()} and memory it
@@ -1215,7 +1215,7 @@ filter.  The parameter is specified as having the given @var{name} and
 It is up to the individual filter to store parameter values, most
 typically in its instance data.  It is free to ignore parameters if
 they are not meaningful for the particular filter type, but its
-@code{set()} function should return @minus{1} in this case to indicate
+@code{set()} function should return @minus{} in this case to indicate
 failure.  On success, the @code{set()} function should return 0.
 @end deftypefun
 
@@ -1257,7 +1257,7 @@ case.  However, some filters may need to do computations on multiple
 elements of the MP's input @math{n}-tuple, and for these filters the
 @var{values} array is provided.
 
-The @code{input()} function should return 0 on success, and @minus{1} to
+The @code{input()} function should return 0 on success, and @minus{} to
 indicate a failure.
 @end deftypefun
 
@@ -1270,7 +1270,7 @@ and pass the result vector to the @code{omlf_write_output()} function.
 If the filter is set to use multiline operation, the @code{output()}
 function can make multiple calls to @code{omlf_write_output()}.
 
-The @code{output()} function should return 0 on success and @minus{1}
+The @code{output()} function should return 0 on success and @minus{}
 on failure.
 @end deftypefun
 
