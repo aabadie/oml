@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 import math
 import sys
@@ -24,7 +24,7 @@ def print_cvec(strm, v):
     strm.write('{ ')
     i = 0
     for x in v:
-        print >>strm,x,
+        print(strm,x)
         if (i != len(v)-1):
             strm.write (', ')
         i = i + 1

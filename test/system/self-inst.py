@@ -1,4 +1,4 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
 
 # A test to see if self-instrumentation of connection/disconections is
 # working as expected. The client opens a text-protocol connection to
